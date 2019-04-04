@@ -1,0 +1,49 @@
+<thymeleaf xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+           th:fragment="header" th:remove="tag">
+
+    <title>JavaBank</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" modelType="text/css"/>
+    <script modelType="application/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script modelType="application/javascript" async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</thymeleaf>
+<html>
+<body>
+<h2>Hello World!</h2>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <thymeleaf th:replace="header :: header" />
+</head>
+<body>
+<div class="container">
+
+    <div th:replace="action :: action"></div>
+
+    <h2>User List</h2>
+    <div th:if="${not #lists.isEmpty(users)}">
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.phone}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+</body>
+</html>
+
+</body>
+</html>
